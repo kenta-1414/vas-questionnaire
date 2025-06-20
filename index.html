@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="header">
+  <p id="selected-name" style="font-weight: bold; font-size: 1.2em; margin: 10px 0;"></p>
       <div class="element-container">
         <p id="title">ハイブリッドワーク実験</p>
         ご協力いただきありがとうございます<br />
@@ -18,7 +19,18 @@
       </div>
     </div>
 
-    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAQdPxidMrOqLr1565Alj90mMvpixf3UjLrm4yzXhw0D6Qwg/formResponse" method="post">
+    <div class="element-container">
+  <p class="question">名前を選択してください：</p>
+  <select name="entry.1180368034" required onchange="document.getElementById('selected-name').textContent = '現在選択中の名前：' + this.value;">
+    <option value="" disabled selected>選択してください</option>
+    <option value="Aさん">Aさん</option>
+    <option value="Bさん">Bさん</option>
+    <option value="Cさん">Cさん</option>
+    <!-- 必要に応じて追加 -->
+  </select>
+</div>
+
+<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAQdPxidMrOqLr1565Alj90mMvpixf3UjLrm4yzXhw0D6Qwg/formResponse" method="post">
       <div class="element-container">
         <p class="question">実験前の「疲労度」を回答してください</p>
         <div style="text-align: center;">0
