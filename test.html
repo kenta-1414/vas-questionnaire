@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>ハイブリッドワーク実験_20250102</title>
+    <style>
+      /* 名前選択（entry.1180368034）だけ大きく表示 */
+      select[name="entry.1180368034"] {
+        font-size: 1.5em;
+        width: 80%;
+        height: 2.5em;
+        padding: 0.3em;
+        box-sizing: border-box;
+      }
+
+      /* VAS関連のスタイル */
+      .vas-container {
+        margin: 15px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fafafa;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .vas-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        font-size: 14px;
+        color: #666;
+        font-weight: normal;
+      }
+      
+      .vas-drawing-area {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        background: white;
+        cursor: crosshair;
+        touch-action: none;
+        padding: 0;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      
+      .vas-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        box-sizing: border-box;
+      }
+      
+      .vas-instructions {
+        margin-top: 5px;
+        font-size: 11px;
+        color: #888;
+        font-style: italic;
+        text-align: center;
+      }
+
+      .hidden-input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <p id="selected-name" style="font-weight: bold; font-size: 1.2em; margin: 10px 0;"></p>
+      <div class="element-container">
+        <p id="title">ハイブリッドワーク実験</p>
+        ご協力いただきありがとうございます<br />
+      </div>
+    </div>
+
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbwu0sRFAJ3gUYU3nT0oC1SOs726bEzZHL1JVXZLqtCcIdQIsNOHZIxosKOSXofEFZkx/exec" id="mainForm">
+      <div class="element-container">
+        <p class="question">名前を選択してください：</p>
+        <select name="entry.1180368034" required onchange="document.getElementById('selected-name').textContent = '現在選択中の名前：' + this.value;">
+          <option value="" disabled selected>選択してください</option>
+          <option value="相澤 心優">相澤 心優</option>
+          <option value="安藤 有康">安藤 有康</option>
+          <option value="大山 翔之祐">大山 翔之祐</option>
+          <option value="門倉 昌矢">門倉 昌矢</option>
+          <option value="北脇 千歳">北脇 千歳</option>
+          <option value="葛馬 康介">葛馬 康介</option>
+          <option value="永井 翔">永井 翔</option>
+          <option value="長谷川 陸">長谷川 陸</option>
+          <option value="古舘 花">古舘 花</option>
+          <option value="峯嶋 智也">峯嶋 智也</option>
+          <option value="郷野 英太郎">郷野 英太郎</option>
+          <option value="山口 高璃">山口 高璃</option>
+          <option value="石黒 達也">石黒 達也</option>
+          <option value="田中 杏奈">田中 杏奈</option>
+          <option value="五十嵐 悠">五十嵐 悠</option>
+          <option value="小林 優介">小林 優介</option>
+          <option value="中西 仁">中西 仁</option>
+          <option value="中澤 祐介">中澤 祐介</option>
+          <option value="服部 真紘">服部 真紘</option>
+        </select>
+      </div>
+
+      <h2>■ 実験前の質問</h2>
+      
+      <div class="element-container">
+        <p class="question">実験前の「疲労度」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>全く疲れていない</span>
+            <span>非常に疲れている</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.657852886">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.657852886" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「やる気」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.298350254">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.298350254" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「緊張度」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.1319415220">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.1319415220" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「集中度」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.296852931">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.296852931" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「安心感」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.1377581960">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.1377581960" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「孤独感」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.2081326845">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.2081326845" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「眠気」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
+          <div class="vas-drawing-area" data-vas-name="entry.93392941">
+            <svg class="vas-svg" viewBox="0 0 400 80">
+              <line class="base-line" x1="10" y1="40" x2="390" y2="40" stroke="black" stroke-width="1" />
+              <line class="drawing-line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" opacity="0" />
+              <line class="final-line" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+          <div class="vas-instructions">マウスまたは指でドラッグして縦線を描いてください</div>
+          <input type="hidden" name="entry.93392941" class="hidden-input" />
+        </div>
+      </div>
+
+      <div class="element-container">
+        <p class="question">実験前の「切迫感」を回答してください</p>
+        <div class="vas-container">
+          <div class="vas-labels">
+            <span>0</span>
+            <span>10</span>
+          </div>
